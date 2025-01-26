@@ -4,12 +4,12 @@ const todosList = (props)=>{
     return(
         props.todosState.map((todo,index)=>
             <TodoList key={index}
-                id={todo.id}
+                id={todo.todoId}
                 todoTitle={todo.todoTitle}
 
-                titleChange={(event)=>props.titleChangeHandler(event,todo.id)}
+                // titleChange={(event)=>props.titleChangeHandler(event,todo.id)}
 
-                delete={()=>props.deletetodo(todo.id)}
+                // delete={()=>props.deletetodo(todo.id)}
             />
         )
     )

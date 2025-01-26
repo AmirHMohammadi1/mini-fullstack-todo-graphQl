@@ -1,16 +1,20 @@
 import './todoList.css'
 import Button from '../../UI/button/button'
-import {memo} from 'react';
-// import { Link } from 'react-router';
+// import {memo} from 'react';
 import { useNavigate as Navigate } from 'react-router';
+import axios from 'axios';
 
 
-const todoList= (props , history)=>{
-    // const locatinon = useLocation;
-    // locatinon.state = 'amir';
-    // console.log(locatinon.state)
+const todoList= (props)=>{
     let navigate = Navigate()
     const edit = ()=>{navigate("/edit-todo/"+props.id)}
+    const deleted = ()=>{
+        axios.delete('http://127.0.0.1:3001/api/'+props.id).then(Response => {
+            console.log(Response)
+        }).catch(error=>{
+            console.log(error)
+        }).then(navigate("/"))
+    }
     return (
         <div className='ItemsList'>
             <label>فعالیت : {props.id}</label>
@@ -22,10 +26,10 @@ const todoList= (props , history)=>{
             {/* ? برای استفاده از کامپوننت دکمه ای که تعریف کردیم و عملکرد کلیک باید پاس داده شود ، 
             در این حالت نمیتوان از کلیک استفاده کرد */}
             <Button className="listBtn" btnType="success" clicked={edit}>و</Button>
-            <Button className="listBtn" btnType="danger" clicked={props.delete}>ح</Button>
+            <Button className="listBtn" btnType="danger" clicked={deleted}>ح</Button>
         </div>
         
     )
 }
 
-export default memo(todoList)
+export default todoList

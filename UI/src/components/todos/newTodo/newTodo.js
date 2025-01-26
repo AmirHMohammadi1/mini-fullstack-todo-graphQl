@@ -7,7 +7,6 @@ const Newtodo=(props)=>{
     return(
         <div className='newtodo newtodo-twoColumn' >
             <h2>فعالیت جدید</h2>
-            {/* <label>شماره دانش آموزی : </label> */}
             <label>عنوان</label>
             <input type='text' value={props.todoTitle} onChange={HtodoTitle}></input>
 
@@ -20,7 +19,7 @@ const Newtodo=(props)=>{
             <label>توضیحات</label>
             <input type='text' value={props.todoPr} onChange={HtodoPr}></input>
 
-            <Button btnType="success" clicked={props.addtodo}>اضافه کردن</Button>
+            <Button btnType="success" clicked={props.addtodo}>اضافه کردن</Button>            
         </div>
     );
 }

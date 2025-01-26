@@ -20,7 +20,7 @@ const Todos=(props)=>{
         props.todosState.map((todo,index)=>
             <ErrorPage key={index}>
             <Todo 
-                id={todo.id}
+                id={todo.todoId}
                 todoTitle={todo.todoTitle}
                 todoStart={todo.todoStart}
                 todoTime={todo.todoTime}
@@ -31,7 +31,7 @@ const Todos=(props)=>{
                 timeChange={(event)=>props.timeChangeHandler(event,todo.id)}
                 prChange={(event)=>props.prChangeHandler(event,todo.id)}
 
-                delete={()=>props.deletetodo(todo.id)}
+                // delete={()=>props.deletetodo(todo.id)}
 
                 // toggler={props.toggler}
                 toggler={toggle}

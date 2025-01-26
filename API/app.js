@@ -5,13 +5,21 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const bodyparser = require('body-parser');
 const cors = require("cors");
+const mongoose = require("mongoose")
 
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var todo = require('./routes/todo')
+var todoApiDB = require('./routes/todoApiDB')
 
 var app = express();
+
+database().catch(err => console.log(err));
+async function database() {
+  await mongoose.connect('mongodb://localhost:27017/nodejsAPI')
+  console.log('DB connect...')
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/todo', todo);
+app.use('/api', todoApiDB)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -10,22 +10,13 @@ const Home = ()=>{
     const[todosState,settodos]=useState([]);
     const[Loading,setLoading]=useState(true)
     useEffect(()=>{
-      axios.get('http://127.0.0.1:3001/todo').then(
+      axios.get('http://127.0.0.1:3001/api').then(
         Response => 
           settodos(Response.data),
           setLoading(false)
       )
     },[])
-
-    // ? delete todo
-    const deletetodo = (id)=>{
-        const todoIndex = todosState.findIndex(todo=>{
-            return todo.id===id
-        })
-        const todos = [...todosState]
-        todos.splice(todoIndex,1)
-        settodos(todos)
-    }
+    // console.log(todosState)
 
     // ? searchbar
     const inputElement = useRef()
@@ -74,7 +65,7 @@ const Home = ()=>{
                 <div className='todoList'>
                 <TodosList
                     todosState={todosState}
-                    deletetodo={deletetodo}
+                    // deletetodo={deletetodo}
                 />
                 </div>
     
@@ -85,7 +76,7 @@ const Home = ()=>{
                         // startChangeHandler={startChangeHandler}
                         // timeChangeHandler={timeChangeHandler}
                         // prChangeHandler={prChangeHandler}
-                        deletetodo={deletetodo}
+                        // deletetodo={deletetodo}
                     />
                 </div>
               </>

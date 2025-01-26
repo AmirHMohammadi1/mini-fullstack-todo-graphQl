@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import Newtodo from '../components/todos/newTodo/newTodo';
+import axios from 'axios';
 
 const AddTodo = ()=>{
 
@@ -20,19 +21,21 @@ const AddTodo = ()=>{
         setFtodoPr(event.target.value)
     }
     const addtodo=()=>{
-        alert('todo added');
-        // todosState.push({
-        //     'id':todosState.length+1,
-        //     'todoTitle':FtodoTitle,
-        //     'todoStart':FtodoStart,
-        //     'todoTime':FtodoTime,
-        //     'todoPr':FtodoPr
-        // })
-        // settodos(todosState)
-        // setFtodoTitle('')
-        // setFtodoStart('')
-        // setFtodoTime('')
-        // setFtodoPr('')
+        const data = {
+            'todoTitle':FtodoTitle,
+            'todoStart':FtodoStart,
+            'todoTime':FtodoTime,
+            'todoPr':FtodoPr
+        }
+        axios.post('http://127.0.0.1:3001/api', data).then(Response=>{
+            console.log(Response)
+        })
+        setFtodoTitle('')
+        setFtodoStart('')
+        setFtodoTime('')
+        setFtodoPr('')
+        alert('اضافه شد.');
+        console.log(data)
     }
 
     return(

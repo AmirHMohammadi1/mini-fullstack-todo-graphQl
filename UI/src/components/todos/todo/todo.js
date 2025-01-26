@@ -1,12 +1,23 @@
 
 import './todo.css';
 import Button from '../../UI/button/button';
-import { memo } from 'react';
+// import { memo } from 'react';
+import { useNavigate as Navigate } from 'react-router';
+import axios from 'axios';
 
 const todo=(props)=>{
     let classes = ["todo"]
     if (props.toggler) {
         classes.push("todo-twoColumn")
+    }
+    let navigate = Navigate()
+    const edit = ()=>{navigate("/edit-todo/"+props.id)}
+    const deleted = ()=>{
+        axios.delete('http://127.0.0.1:3001/api/'+props.id).then(Response => {
+            console.log(Response)
+        }).catch(error=>{
+            console.log(error)
+        }).then(navigate("/"))
     }
     return(
         <div className={classes.join(" ")} >
@@ -32,10 +43,10 @@ const todo=(props)=>{
             </span>
             
 
-            <Button className="todoButton" btnType="success" >ویرایش</Button>
-            <Button className="todoButton" btnType="danger" clicked={props.delete}>حذف</Button>
+            <Button className="todoButton" btnType="success" clicked={edit}>ویرایش</Button>
+            <Button className="todoButton" btnType="danger" clicked={deleted}>حذف</Button>
         </div>
     );
 }
 
-export default memo(todo);
+export default todo;

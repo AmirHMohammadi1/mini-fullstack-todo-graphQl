@@ -7,14 +7,18 @@ const Menu = ()=>{
                 <MenuItem link='/'>
                     خانه
                 </MenuItem>
-                <MenuItem link={{
+                <MenuItem link='/add-todo'>
+                    افزودن
+                </MenuItem>
+                {/* test */}
+                {/* <MenuItem link={{
                     pathname:'/add-todo',
                     search:'?sort=name',
                     hash:'#the-hash',
                     state:{'state':true}
                 }} >
                     افزودن
-                </MenuItem>
+                </MenuItem> */}
             </ul>
         </nav>
     )
