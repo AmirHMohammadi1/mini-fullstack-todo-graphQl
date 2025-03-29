@@ -34,7 +34,7 @@ const AddTodo = ()=>{
         setFtodoStart('')
         setFtodoTime('')
         setFtodoPr('')
-        alert('اضافه شد.');
+        // alert('اضافه شد.');
         console.log(data)
     }
 

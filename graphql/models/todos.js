@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
+const paginate = require('mongoose-paginate-v2')
+const Schema = mongoose.Schema;
 
-const todo = new mongoose.Schema({
+const api = Schema({
     todoId: {type:Number},
     todoTitle: {type: String},
     todoStart: {type: String},
@@ -10,8 +12,7 @@ const todo = new mongoose.Schema({
     timestamps: true,
 });
 
-const todoapi = mongoose.model('api1', todo)
+api.plugin(paginate)
+const todoModel = mongoose.model('api1' , api);
 
-// todoapi.createCollection();
-
-module.exports = todoapi
+module.exports = todoModel;

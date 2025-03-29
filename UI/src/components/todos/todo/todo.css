@@ -2,7 +2,7 @@
     width: 80%;
     border: 1px solid #ddd;
     margin: 20px 10%;
-    padding: 20px 0.5%;
+    padding: 10px;
     box-shadow: 4px 4px 15px #ddd;
     text-align: center;
     border-radius: 20px;
@@ -10,28 +10,41 @@
 }
 
 .todo-twoColumn{
-    width: 30%;
+    width: 23%;
     margin: 20px 1%;
+    box-sizing: border-box;
 }
 
 .todoNumber{
-    display: contents;
     font-weight: bold;
 }
 
 .formItemCountainer{
-    display: flow-root;
-    font-weight: bold;
-    margin: 15px;
-    width: 95%;
+    display: flex;
+    align-items: center;
+    margin: 0 15px;
     text-align: right;
 }
 
-.todo label{
-    line-height: 48px;
+.formItemCountainer p{
+    width: 40%;
+    margin: 0;
 }
 
-.todo input{
+.formItemCountainer h4{
+    margin: 3px 0;
+    box-shadow: 0px 0px 3px #ddd;
+    width: 60%;
+    border-radius: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* .todo label{
+    line-height: 48px;
+} */
+
+/* .todo input{
     width: 65%;
     border: 1px solid #ddd;
     box-shadow: 2px 2px 7px #ddd;
@@ -39,18 +52,18 @@
     font-size: 17px;
     border-radius: 20px;
     float: left;
-}
+} */
 
 .todoButton {
     margin: 10px !important;
-    width: 100px;
+    width: 25%;
+    padding: 5px;
 }
 
 
-/* @media (min-width:500px) {
+@media (max-width:500px) {
     .todo-twoColumn{
-        width: 30%;
-        float: right;
-        margin: 20px 10% 20px auto;
+        width: 95% !important;
+        margin: 10px 2.5%;
     }
-} */
+}

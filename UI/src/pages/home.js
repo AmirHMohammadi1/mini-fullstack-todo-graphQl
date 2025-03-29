@@ -3,6 +3,7 @@ import Todos from '../components/todos/todos';
 import TodosList from '../components/todos/todosList';
 import Button from '../components/UI/button/button';
 import axios from 'axios'
+import Spinner from '../components/UI/spinner/search-spinner';
 
 
 const Home = ()=>{
@@ -51,6 +52,13 @@ const Home = ()=>{
       inputElement.current.focus()
     }
 
+    // ? toggle
+    const[toggle,settoggle]=useState(true);
+    const toggleHandler=()=>{
+        // console.log(toggle)
+        settoggle(!toggle)
+    }
+
 
     return (
         <Fragment>
@@ -60,7 +68,7 @@ const Home = ()=>{
             <input type="text" id='searchbar' ref={inputElement} value={searchbarValue} onChange={searchbarFilterFunction}></input>
             </span>
 
-            { Loading ? <h1>...loading</h1> :
+            { Loading ? <Spinner/> :
               <>
                 <div className='todoList'>
                 <TodosList
@@ -77,6 +85,7 @@ const Home = ()=>{
                         // timeChangeHandler={timeChangeHandler}
                         // prChangeHandler={prChangeHandler}
                         // deletetodo={deletetodo}
+                        toggle={toggle}
                     />
                 </div>
               </>
@@ -88,6 +97,14 @@ const Home = ()=>{
                 clicked={scrollToTop}
             >
                 جستجو
+            </Button>
+
+            <Button
+                className="Animation changeShow"
+                btnType="success"
+                clicked={toggleHandler}
+            >
+                تفییر وضعیت نمایش
             </Button>
         </Fragment>
     )

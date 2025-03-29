@@ -17,7 +17,7 @@ const todoList= (props)=>{
     }
     return (
         <div className='ItemsList'>
-            <label>فعالیت : {props.id}</label>
+            <label>{props.id} : </label>
             <h4 className='todo-list-label'>{props.todoTitle}</h4>
             {/* <input type='text' value={props.todoTitle} disabled></input> */}
             {/* <Link to={"/edit-todo/"+props.id}>

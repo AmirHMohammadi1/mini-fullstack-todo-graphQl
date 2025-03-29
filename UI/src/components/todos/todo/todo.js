@@ -21,25 +21,29 @@ const todo=(props)=>{
     }
     return(
         <div className={classes.join(" ")} >
-            <label className='todoNumber'>فعالیت : {props.id}</label>
+            <p className='todoNumber'>فعالیت : {props.id}</p>
             <span className='formItemCountainer'>
-                <label>عنوان</label>
-                <input type='text' value={props.todoTitle} onChange={props.titleChange}></input>
+                <p>عنوان</p>
+                {/* <input type='text' value={props.todoTitle} onChange={props.titleChange}></input> */}
+                <h4>{props.todoTitle}</h4>
             </span>
             
             <span className='formItemCountainer'>
-                <label>ساعت شروع</label>
-                <input type='text' value={props.todoStart} onChange={props.startChange}></input>
+                <p>ساعت شروع</p>
+                {/* <input type='text' value={props.todoStart} onChange={props.startChange}></input> */}
+                <h4>{props.todoStart}</h4>
             </span>
             
             <span className='formItemCountainer'>
-                <label>زمان مورد نیاز</label>
-                <input type='text' value={props.todoTime} onChange={props.timeChange}></input>
+                <p>زمان مورد نیاز</p>
+                {/* <input type='text' value={props.todoTime} onChange={props.timeChange}></input> */}
+                <h4>{props.todoTime}</h4>
             </span>
             
             <span className='formItemCountainer'>
-                <label>توضیح</label>
-                <input type='text' value={props.todoPr} onChange={props.prChange}></input>
+                <p>توضیح</p>
+                {/* <input type='text' value={props.todoPr} onChange={props.prChange}></input> */}
+                <h4>{props.todoPr}</h4>
             </span>
             
 

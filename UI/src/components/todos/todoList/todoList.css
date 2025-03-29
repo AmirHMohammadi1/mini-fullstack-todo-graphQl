@@ -1,11 +1,13 @@
 .listBtn {
     margin: 10px !important;
+    padding: 0 12px;
+    height: 27px;
 }
 
 .todoList {
-    width: 90%;
+    width: 45%;
     border: 1px solid #ddd;
-    margin: 20px auto;
+    margin: 10px auto;
     padding: 10px 15px 10px 10px;
     box-shadow: 4px 4px 15px #ddd;
     text-align: right;
@@ -26,6 +28,12 @@
     display: flex;
     text-align: right;
     align-items: center;
+    height: 30px;
+    margin: 5px 15px;
+}
+
+.ItemsList label{
+    width: 10%;
 }
 
 @media(max-width:500px) {
@@ -34,5 +42,39 @@
         box-sizing: border-box;
         margin: 5px auto;
         float: none;
+    }
+
+    .listBtn {
+        margin: 5px !important;
+        padding: 0 6px;
+        height: 27px;
+    }
+    
+    .todoList {
+        width: 95%;
+        border: 1px solid #ddd;
+        margin: 4px auto;
+        padding: 5px;
+        box-shadow: 4px 4px 15px #ddd;
+        text-align: right;
+        border-radius: 20px;
+    }
+    
+    .todoList input,
+    .todo-list-label {
+        width: 76%;
+        border: none;
+        margin: 4px;
+        padding: 3px 5px;
+        font-size: 15px;
+        color: black;
+    }
+    
+    .ItemsList {
+        display: flex;
+        text-align: right;
+        align-items: center;
+        height: 30px;
+        margin: 5px 5px;
     }
 }

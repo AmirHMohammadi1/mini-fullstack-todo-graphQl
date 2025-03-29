@@ -1,8 +1,6 @@
 import { memo } from 'react';
-import { useState } from 'react';
 import Todo from './todo/todo';
 import ErrorPage from '../error/errorPage';
-import Button from '../UI/button/button';
 
 const Todos=(props)=>{
     // const adad = 1
@@ -10,11 +8,7 @@ const Todos=(props)=>{
     //     console.log(adad)
     //     throw new Error('Im Sorry');
     // }
-    const[toggle,settoggle]=useState(true);
-    const toggleHandler=()=>{
-        // console.log(toggle)
-        settoggle(!toggle)
-    }
+    
     
     return(
         props.todosState.map((todo,index)=>
@@ -31,18 +25,12 @@ const Todos=(props)=>{
                 timeChange={(event)=>props.timeChangeHandler(event,todo.id)}
                 prChange={(event)=>props.prChangeHandler(event,todo.id)}
 
-                // delete={()=>props.deletetodo(todo.id)}
+                delete={()=>props.deletetodo(todo.id)}
 
                 // toggler={props.toggler}
-                toggler={toggle}
+                toggler={props.toggle}
             />
-            <Button
-                className="Animation changeShow"
-                btnType="success"
-                clicked={toggleHandler}
-                >
-                    تفییر وضعیت نمایش
-            </Button>
+            
             </ErrorPage>
         )
     )

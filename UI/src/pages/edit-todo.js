@@ -3,6 +3,7 @@ import { useParams, Navigate } from "react-router";
 import EditTodo from "../components/todos/editTodo/editTodo";
 import { useState , useEffect } from 'react';
 import axios from 'axios';
+import Spinner from './../components/UI/spinner/search-spinner'
 
 const EditPage = ()=>{
     const params = useParams()
@@ -29,7 +30,7 @@ const EditPage = ()=>{
             {shoudeRedirect ? null : <Navigate replace to='/' state={{redirected:'true'}}/>}
             
             {
-                loading ? <h1>...loading</h1> : 
+                loading ? <Spinner/> : 
                     todostate.map((todo , index)=>
                     <EditTodo key={index}
                         todostate={todo}
