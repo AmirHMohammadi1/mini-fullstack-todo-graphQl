@@ -1,9 +1,25 @@
 const { Router } = require('express');
-const router = Router(); 
-const TodoApiDB = require('../db/api') 
+const router = Router();
+const TodoApiDB = require('../db/api')
 
-// Get all todoApiDBs
-router.get('/', async(req, res) => {
+// Get all todoApiDBs 
+/**
+ * @swagger
+ * /api:
+ *   get:
+ *     summary: دریافت لیست تمامی وظایف
+ *     tags: [Todos]
+ *     responses:
+ *       200:
+ *         description: لیست وظایف با موفقیت بازگردانده شد
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/User'
+ */
+router.get('/', async (req, res) => {
     try {
         const todoApiDBs = await TodoApiDB.find()
         res.send(todoApiDBs)
@@ -13,7 +29,7 @@ router.get('/', async(req, res) => {
 })
 
 // Create a new todoApiDB
-router.post('/', async(req, res) => {
+router.post('/', async (req, res) => {
     // console.log(req.body);
     try {
         const todoApiDBs = await TodoApiDB.find()
@@ -32,9 +48,9 @@ router.post('/', async(req, res) => {
 })
 
 // Get todoApiDB By ID
-router.get('/:id', async(req, res) => {
+router.get('/:id', async (req, res) => {
     try {
-        const todoApiDB = await TodoApiDB.find({todoId : req.params.id})
+        const todoApiDB = await TodoApiDB.find({ todoId: req.params.id })
         res.send(todoApiDB)
     } catch (error) {
         res.status(500).send(error.message)
@@ -42,15 +58,15 @@ router.get('/:id', async(req, res) => {
 })
 
 // Update todoApiDB By ID
-router.put('/:id', async(req, res) => {
+router.put('/:id', async (req, res) => {
     try {
-        const todoApiDB = await TodoApiDB.updateOne({todoId : req.params.id}, {
+        const todoApiDB = await TodoApiDB.updateOne({ todoId: req.params.id }, {
             todoId: req.params.id,
             todoTitle: req.body.todoTitle,
             todoStart: req.body.todoStart,
             todoTime: req.body.todoTime,
             todoPr: req.body.todoPr
-        },{new: true})
+        }, { new: true })
         res.send(todoApiDB)
     } catch (error) {
         res.status(500).send(error.message)
@@ -58,9 +74,9 @@ router.put('/:id', async(req, res) => {
 })
 
 // Delete todoApiDB By ID
-router.delete('/:id', async(req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
-        const todoApiDB = await TodoApiDB.deleteOne({todoId : req.params.id})
+        const todoApiDB = await TodoApiDB.deleteOne({ todoId: req.params.id })
         res.send(todoApiDB)
     } catch (error) {
         res.status(500).send(error.message)
